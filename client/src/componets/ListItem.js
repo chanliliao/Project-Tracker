@@ -21,7 +21,12 @@ const ListItem = () => {
         <br />
         last updated:
         {/* <Moment format='MMMM Do YYYY, h:mm:ss a'>{date}</Moment> */}
-        <a href='#!' onClick={onDelete} className='secondary-content'>
+        <a
+          href='#!'
+          onClick={onDelete}
+          className='secondary-content'
+          style={{ color: '#e53935 ' }}
+        >
           <i className='material-icons'>delete</i>
         </a>
       </div>

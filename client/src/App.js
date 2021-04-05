@@ -3,6 +3,8 @@ import React, { useEffect, Fragment } from 'react';
 // component input
 import SearchBar from './layout/SearchBar';
 import List from './componets/List';
+import Addbtn from './layout/AddBtn';
+import AddProjectModal from './componets/AddProjectModal';
 
 // import for materialize css
 import 'materialize-css/dist/css/materialize.min.css';
@@ -18,6 +20,8 @@ function App() {
     <Fragment>
       <SearchBar />
       <div className='container'>
+        <Addbtn />
+        <AddProjectModal />
         <List />
       </div>
     </Fragment>
