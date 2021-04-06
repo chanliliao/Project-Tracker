@@ -3,28 +3,22 @@
     {
       "id": 2,
       "name": "a",
-      "details": true,
-      "tech": "bob",
+      "category": "bug",
       "date": "2020-12-24T23:14:16.773Z",
-      "bugs": [],
-      "functions": []
+      "message": "Fix the navbar"
     },
     {
       "id": 3,
       "name": "a",
-      "details": true,
-      "tech": "bob",
+      "category": "bug",
       "date": "2020-12-24T23:14:16.773Z",
-      "bugs": [],
-      "functions": []
+      "message": "The drop down menu not work"
     },
     {
       "name": "a",
-      "details": true,
-      "tech": "bob",
+      "category": "function",
       "date": "2020-12-24T23:14:16.773Z",
-      "bugs": [],
-      "functions": []
+      "message": "Finish the login in page"
     }
   ]
 }
