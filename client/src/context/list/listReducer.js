@@ -9,10 +9,3 @@ import {
   CLEAR_CURRENT,
   LIST_ERROR,
 } from '../actions/types';
-
-const initialState = {
-  list: null,
-  current: null,
-  loading: false,
-  error: null,
-};
