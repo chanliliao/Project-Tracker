@@ -24,6 +24,32 @@ const ListState = (props) => {
 
   const [state, dispatch] = useReducer(listReducer, initialState);
 
+  // get logs from server
+  const getLogs = () => async (dispatch) => {
+    try {
+      setLoading();
+
+      const res = await fetch('/list');
+      const data = await res.json();
+
+      dispatch({
+        type: GET_LIST,
+        payload: data,
+      });
+    } catch (err) {
+      dispatch({
+        type: LOGS_ERROR,
+        payload: err.response.statusText,
+      });
+    }
+  };
+
+  const setLoading = () => {
+    return {
+      type: SET_LOADING,
+    };
+  };
+
   return (
     <ListContext.Provider
       value={{
@@ -31,6 +57,7 @@ const ListState = (props) => {
         current: state.current,
         loading: state.loading,
         error: state.error,
+        getLogs,
       }}
     >
       {props.children}
