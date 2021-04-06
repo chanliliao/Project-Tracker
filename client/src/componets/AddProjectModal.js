@@ -27,19 +27,7 @@ const AddProjectModal = () => {
             </label>
           </div>
         </div>
-        <div className='row'>
-          <div className='input-field'>
-            <input
-              type='text'
-              name='about'
-              value={about}
-              onChange={(e) => setAbout(e.target.value)}
-            />
-            <label htmlFor='about' className='active'>
-              About
-            </label>
-          </div>
-        </div>
+
         <div className='row'>
           <div className='input-field'>
             <select

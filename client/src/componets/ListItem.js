@@ -1,5 +1,5 @@
 import React from 'react';
-// import Moment from 'react-moment';
+import Moment from 'react-moment';
 
 // import materialize css
 import 'materialize-css/dist/css/materialize.min.css';
@@ -15,12 +15,14 @@ const ListItem = () => {
           Project 1
         </a>
         <br />
-        <span className='red-text'>Bugs:</span> 4
+        <span className='red-text'>Category:</span> bug
         <br />
-        <span className='green-text'>Functions:</span> 3
+        <span className='green-text'>Message:</span> Fix the add button
         <br />
         last updated:
-        {/* <Moment format='MMMM Do YYYY, h:mm:ss a'>{date}</Moment> */}
+        <Moment className='gray-text' format=' MMMM Do YYYY, h:mm:ss a'>
+          01 19 1994
+        </Moment>
         <a
           href='#!'
           onClick={onDelete}
