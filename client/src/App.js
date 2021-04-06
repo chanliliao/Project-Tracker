@@ -9,6 +9,7 @@ import AddProjectModal from './componets/AddProjectModal';
 // import for materialize css
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
+import ListState from './context/list/ListState';
 
 function App() {
   useEffect(() => {
@@ -18,12 +19,14 @@ function App() {
 
   return (
     <Fragment>
-      <SearchBar />
-      <div className='container'>
-        <Addbtn />
-        <AddProjectModal />
-        <List />
-      </div>
+      <ListState>
+        <SearchBar />
+        <div className='container'>
+          <Addbtn />
+          <AddProjectModal />
+          <List />
+        </div>
+      </ListState>
     </Fragment>
   );
 }

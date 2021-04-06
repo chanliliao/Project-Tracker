@@ -24,8 +24,8 @@ const ListState = (props) => {
 
   const [state, dispatch] = useReducer(listReducer, initialState);
 
-  // get logs from server
-  const getLogs = () => async (dispatch) => {
+  // get list from server
+  const getList = () => async (dispatch) => {
     try {
       setLoading();
 
@@ -57,7 +57,7 @@ const ListState = (props) => {
         current: state.current,
         loading: state.loading,
         error: state.error,
-        getLogs,
+        getList,
       }}
     >
       {props.children}

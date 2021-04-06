@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Moment from 'react-moment';
+
+// context
+import ListContext from '../context/list/listContext';
 
 // import materialize css
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 
-const ListItem = () => {
+const ListItem = ({ list }) => {
+  const listContext = useContext(ListContext);
+  const { name, category, date, message } = list;
+
   const onDelete = () => {};
 
   return (
