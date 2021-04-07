@@ -1,13 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+import ListContext from '../context/list/listContext';
 
 // import for materialize css
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 
 const AddProjectModal = () => {
+  const listContext = useContext(ListContext);
+  const { addListItem } = listContext;
+
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [message, setMessage] = useState('');
+
+  const onSubmit = () => {
+    if (message === '' || title === '') {
+      M.toast({ html: 'Please enter a title and message' });
+    } else {
+      const newListItem = {
+        message,
+        category,
+        title,
+        date: new Date(),
+      };
+
+      addListItem(newListItem);
+
+      setMessage('');
+      setTitle('');
+      setMessage('');
+    }
+  };
 
   return (
     <div id='add-project-modal' className='modal' style={modalStyle}>
@@ -56,6 +80,15 @@ const AddProjectModal = () => {
             </label>
           </div>
         </div>
+      </div>
+      <div className='modal-footer'>
+        <a
+          href='#!'
+          onClick={onSubmit}
+          className='modal-close waves-effect blue darken-4 waves-light btn'
+        >
+          Enter
+        </a>
       </div>
     </div>
   );
