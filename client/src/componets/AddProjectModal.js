@@ -6,8 +6,7 @@ import M from 'materialize-css';
 
 const AddProjectModal = () => {
   const [title, setTitle] = useState('');
-  const [about, setAbout] = useState('');
-  const [problem, setProblem] = useState('');
+  const [category, setCategory] = useState('');
   const [message, setMessage] = useState('');
 
   return (
@@ -32,9 +31,9 @@ const AddProjectModal = () => {
           <div className='input-field'>
             <select
               name='options'
-              value={problem}
+              value={category}
               className='browser-default'
-              onChange={(e) => setProblem(e.target.value)}
+              onChange={(e) => setCategory(e.target.value)}
             >
               <option value='' disable>
                 Choose your option

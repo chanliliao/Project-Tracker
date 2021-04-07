@@ -10,7 +10,7 @@ import M from 'materialize-css';
 
 const ListItem = ({ listItem }) => {
   const listContext = useContext(ListContext);
-  const { name, category, date, message } = listItem;
+  const { title, category, date, message } = listItem;
 
   const onDelete = () => {};
 
@@ -18,7 +18,7 @@ const ListItem = ({ listItem }) => {
     <li className='collection-item'>
       <div>
         <a href='' className='blue-text'>
-          {name}
+          {title}
         </a>
         <br />
         <span className='red-text'>Category:</span> {category}

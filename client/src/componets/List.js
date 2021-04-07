@@ -29,9 +29,7 @@ const List = () => {
       {!loading && list.length === 0 ? (
         <p className='center'>No list to show...</p>
       ) : (
-        list.map((listItem) => (
-          <ListItem listItem={listItem} key={listItem.id} />
-        ))
+        list.map((listItem) => <ListItem listItem={listItem} key={id} />)
       )}
     </ul>
   );

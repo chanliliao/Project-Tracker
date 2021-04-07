@@ -2,21 +2,21 @@
   "list": [
     {
       "id": 2,
-      "name": "a",
+      "title": "a",
       "category": "bug",
       "date": "2020-12-24T23:14:16.773Z",
       "message": "Fix the navbar"
     },
     {
       "id": 3,
-      "name": "b",
+      "title": "b",
       "category": "bug",
       "date": "2020-12-24T23:14:16.773Z",
       "message": "The drop down menu not work"
     },
     {
       "id": 4,
-      "name": "c",
+      "title": "c",
       "category": "function",
       "date": "2020-12-24T23:14:16.773Z",
       "message": "Finish the login in page"

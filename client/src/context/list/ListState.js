@@ -44,6 +44,33 @@ const ListState = (props) => {
     }
   };
 
+  //add list item
+  const addListItem = async (listItem) => {
+    try {
+      setLoading();
+
+      const res = await fetch('/list', {
+        method: 'POST',
+        body: JSON.stringify(listItem),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await res.json();
+
+      dispatch({
+        type: ADD_LISTITEM,
+        payload: data,
+      });
+    } catch (err) {
+      dispatch({
+        type: LIST_ERROR,
+        payload: err.response.msg,
+      });
+    }
+  };
+
+  //set loading
   const setLoading = () => {
     return {
       type: SET_LOADING,
@@ -58,6 +85,7 @@ const ListState = (props) => {
         loading: state.loading,
         error: state.error,
         getList,
+        addListItem,
       }}
     >
       {props.children}
