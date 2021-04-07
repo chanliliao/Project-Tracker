@@ -9,14 +9,14 @@
     },
     {
       "id": 3,
-      "name": "a",
+      "name": "b",
       "category": "bug",
       "date": "2020-12-24T23:14:16.773Z",
       "message": "The drop down menu not work"
     },
     {
       "id": 4,
-      "name": "a",
+      "name": "c",
       "category": "function",
       "date": "2020-12-24T23:14:16.773Z",
       "message": "Finish the login in page"

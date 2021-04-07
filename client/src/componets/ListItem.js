@@ -8,9 +8,9 @@ import ListContext from '../context/list/listContext';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 
-const ListItem = ({ list }) => {
+const ListItem = ({ listItem }) => {
   const listContext = useContext(ListContext);
-  const { name, category, date, message } = list;
+  const { name, category, date, message } = listItem;
 
   const onDelete = () => {};
 
@@ -18,13 +18,12 @@ const ListItem = ({ list }) => {
     <li className='collection-item'>
       <div>
         <a href='' className='blue-text'>
-          Project 1
+          {name}
         </a>
         <br />
         <span className='red-text'>Category:</span> {category}
         <br />
-        <span className='green-text'>Message:</span>
-        {message}
+        <span className='green-text'>Message:</span> {message}
         <br />
         last updated:
         <Moment className='gray-text' format=' MMMM Do YYYY, h:mm:ss a'>
