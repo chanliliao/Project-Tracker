@@ -6,10 +6,12 @@ import List from './componets/List';
 import Addbtn from './layout/AddBtn';
 import AddProjectModal from './componets/AddProjectModal';
 
+//context
+import ListState from './context/list/ListState';
+
 // import for materialize css
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
-import ListState from './context/list/ListState';
 
 function App() {
   useEffect(() => {

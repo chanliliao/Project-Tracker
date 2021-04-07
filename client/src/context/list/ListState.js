@@ -7,16 +7,16 @@ import {
   ADD_LISTITEM,
   DELETE_LISTITEM,
   UPDATE_LISTITEM,
-  SEARCH_LOGS,
+  SEARCH_LIST,
   SET_LOADING,
   SET_CURRENT,
   CLEAR_CURRENT,
   LIST_ERROR,
-} from '../actions/types';
+} from './types';
 
 const ListState = (props) => {
   const initialState = {
-    list: null,
+    list: [1, 2, 3],
     current: null,
     loading: false,
     error: null,
@@ -25,7 +25,7 @@ const ListState = (props) => {
   const [state, dispatch] = useReducer(listReducer, initialState);
 
   // get list from server
-  const getList = () => async (dispatch) => {
+  const getList = async () => {
     try {
       setLoading();
 
@@ -38,8 +38,8 @@ const ListState = (props) => {
       });
     } catch (err) {
       dispatch({
-        type: LOGS_ERROR,
-        payload: err.response.statusText,
+        type: LIST_ERROR,
+        payload: err.response.msg,
       });
     }
   };
@@ -53,7 +53,7 @@ const ListState = (props) => {
   return (
     <ListContext.Provider
       value={{
-        List: state.list,
+        list: state.list,
         current: state.current,
         loading: state.loading,
         error: state.error,

@@ -21,13 +21,14 @@ const ListItem = ({ list }) => {
           Project 1
         </a>
         <br />
-        <span className='red-text'>Category:</span> bug
+        <span className='red-text'>Category:</span> {category}
         <br />
-        <span className='green-text'>Message:</span> Fix the add button
+        <span className='green-text'>Message:</span>
+        {message}
         <br />
         last updated:
         <Moment className='gray-text' format=' MMMM Do YYYY, h:mm:ss a'>
-          01 19 1994
+          {date}
         </Moment>
         <a
           href='#!'

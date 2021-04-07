@@ -3,16 +3,16 @@ import {
   ADD_LISTITEM,
   DELETE_LISTITEM,
   UPDATE_LISTITEM,
-  SEARCH_LOGS,
+  SEARCH_LIST,
   SET_LOADING,
   SET_CURRENT,
   CLEAR_CURRENT,
   LIST_ERROR,
-} from '../actions/types';
+} from './types';
 
 export default (state, action) => {
   switch (action.type) {
-    case GET_LOGS:
+    case GET_LIST:
       return {
         ...state,
         list: action.payload,
@@ -22,6 +22,11 @@ export default (state, action) => {
       return {
         ...state,
         loading: true,
+      };
+    case LIST_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
