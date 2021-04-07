@@ -18,6 +18,12 @@ export default (state, action) => {
         list: action.payload,
         loading: false,
       };
+    case ADD_LISTITEM:
+      return {
+        ...state,
+        list: [...state.list, action.payload],
+        loading: false,
+      };
     case SET_LOADING:
       return {
         ...state,
