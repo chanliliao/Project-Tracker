@@ -29,13 +29,16 @@ const ListState = (props) => {
       setLoading();
 
       //grab data
-      const res = await fetch('/list', {
-        method: 'POST',
-        body: JSON.stringify(listItem),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const res = await fetch(
+        'https://personal-project-tracker1.herokuapp.com/list',
+        {
+          method: 'POST',
+          body: JSON.stringify(listItem),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
 
       //set data
       const data = await res.json();
@@ -60,7 +63,7 @@ const ListState = (props) => {
       setLoading();
 
       const res = await fetch(
-        'https://personal-project-tracker1.herokuapp.com//list'
+        'https://personal-project-tracker1.herokuapp.com/list'
       );
       const data = await res.json();
 
@@ -82,7 +85,7 @@ const ListState = (props) => {
       setLoading();
 
       await fetch(
-        `https://personal-project-tracker1.herokuapp.com//list/${id}`,
+        `https://personal-project-tracker1.herokuapp.com/list/${id}`,
         {
           method: 'DELETE',
         }
@@ -106,7 +109,7 @@ const ListState = (props) => {
       setLoading();
 
       const res = await fetch(
-        `https://personal-project-tracker1.herokuapp.com//list/?q=${text}`
+        `https://personal-project-tracker1.herokuapp.com/list/?q=${text}`
       );
       const data = await res.json();
 
