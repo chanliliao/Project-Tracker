@@ -88,6 +88,26 @@ const ListState = (props) => {
     }
   };
 
+  //search list
+  const searchList = async (text) => {
+    try {
+      setLoading();
+
+      const res = await fetch(`/list/?q=${text}`);
+      const data = await res.json();
+
+      dispatch({
+        type: SEARCH_LIST,
+        payload: data,
+      });
+    } catch (err) {
+      dispatch({
+        type: LIST_ERROR,
+        payload: err.response.msg,
+      });
+    }
+  };
+
   //set loading
   const setLoading = () => {
     return {
@@ -105,6 +125,7 @@ const ListState = (props) => {
         getList,
         addListItem,
         deleteListItem,
+        searchList,
       }}
     >
       {props.children}

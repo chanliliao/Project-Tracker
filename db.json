@@ -15,18 +15,11 @@
       "message": "The drop down menu not work"
     },
     {
-      "id": 4,
-      "title": "c",
-      "category": "function",
-      "date": "2020-12-24T23:14:16.773Z",
-      "message": "Finish the login in page"
-    },
-    {
-      "message": "start the project",
-      "category": "function",
-      "title": "new project ",
-      "date": "2021-04-07T18:42:26.740Z",
-      "id": 5
+      "title": "sdfgsdfgsd",
+      "category": "bug",
+      "message": "sdfgsdfgs",
+      "date": "2021-04-08T17:41:21.946Z",
+      "id": 4
     }
   ]
 }
