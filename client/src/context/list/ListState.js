@@ -70,6 +70,27 @@ const ListState = (props) => {
     }
   };
 
+  //delete list item
+  const deleteListItem = async (id) => {
+    try {
+      setLoading();
+
+      await fetch(`/list/${id}`, {
+        method: 'DELETE',
+      });
+
+      dispatch({
+        type: DELETE_LISTITEM,
+        payload: id,
+      });
+    } catch (err) {
+      dispatch({
+        type: LIST_ERROR,
+        payload: err.response.msg,
+      });
+    }
+  };
+
   //set loading
   const setLoading = () => {
     return {
@@ -86,6 +107,7 @@ const ListState = (props) => {
         error: state.error,
         getList,
         addListItem,
+        deleteListItem,
       }}
     >
       {props.children}

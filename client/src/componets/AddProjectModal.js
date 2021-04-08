@@ -19,9 +19,9 @@ const AddProjectModal = () => {
       M.toast({ html: 'Please enter a title and message' });
     } else {
       const newListItem = {
-        message,
-        category,
         title,
+        category,
+        message,
         date: new Date(),
       };
 
@@ -29,7 +29,7 @@ const AddProjectModal = () => {
 
       setMessage('');
       setTitle('');
-      setMessage('');
+      setCategory('');
     }
   };
 

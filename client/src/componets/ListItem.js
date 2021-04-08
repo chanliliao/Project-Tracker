@@ -10,9 +10,12 @@ import M from 'materialize-css';
 
 const ListItem = ({ listItem }) => {
   const listContext = useContext(ListContext);
-  const { title, category, date, message } = listItem;
+  const { deleteListItem } = listContext;
+  const { id, title, category, date, message } = listItem;
 
-  const onDelete = () => {};
+  const onDelete = () => {
+    deleteListItem(id);
+  };
 
   return (
     <li className='collection-item'>
