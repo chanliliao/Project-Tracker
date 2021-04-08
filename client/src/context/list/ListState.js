@@ -59,7 +59,9 @@ const ListState = (props) => {
     try {
       setLoading();
 
-      const res = await fetch('/list');
+      const res = await fetch(
+        'https://personal-project-tracker1.herokuapp.com//list'
+      );
       const data = await res.json();
 
       dispatch({
@@ -79,9 +81,12 @@ const ListState = (props) => {
     try {
       setLoading();
 
-      await fetch(`/list/${id}`, {
-        method: 'DELETE',
-      });
+      await fetch(
+        `https://personal-project-tracker1.herokuapp.com//list/${id}`,
+        {
+          method: 'DELETE',
+        }
+      );
 
       dispatch({
         type: DELETE_LISTITEM,
@@ -100,7 +105,9 @@ const ListState = (props) => {
     try {
       setLoading();
 
-      const res = await fetch(`/list/?q=${text}`);
+      const res = await fetch(
+        `https://personal-project-tracker1.herokuapp.com//list/?q=${text}`
+      );
       const data = await res.json();
 
       dispatch({
