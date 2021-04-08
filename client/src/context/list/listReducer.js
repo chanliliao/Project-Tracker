@@ -2,26 +2,23 @@ import {
   GET_LIST,
   ADD_LISTITEM,
   DELETE_LISTITEM,
-  UPDATE_LISTITEM,
   SEARCH_LIST,
   SET_LOADING,
-  SET_CURRENT,
-  CLEAR_CURRENT,
   LIST_ERROR,
 } from './types';
 
 export default (state, action) => {
   switch (action.type) {
-    case GET_LIST:
-      return {
-        ...state,
-        list: action.payload,
-        loading: false,
-      };
     case ADD_LISTITEM:
       return {
         ...state,
         list: [...state.list, action.payload],
+        loading: false,
+      };
+    case GET_LIST:
+      return {
+        ...state,
+        list: action.payload,
         loading: false,
       };
     case DELETE_LISTITEM:
@@ -29,6 +26,11 @@ export default (state, action) => {
         ...state,
         list: state.list.filter((listItem) => listItem.id !== action.payload),
         loading: false,
+      };
+    case SEARCH_LIST:
+      return {
+        ...state,
+        list: action.payload,
       };
     case SET_LOADING:
       return {

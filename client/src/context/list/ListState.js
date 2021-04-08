@@ -6,43 +6,20 @@ import {
   GET_LIST,
   ADD_LISTITEM,
   DELETE_LISTITEM,
-  UPDATE_LISTITEM,
   SEARCH_LIST,
   SET_LOADING,
-  SET_CURRENT,
-  CLEAR_CURRENT,
   LIST_ERROR,
 } from './types';
 
 const ListState = (props) => {
   const initialState = {
-    list: [1, 2, 3],
+    list: null,
     current: null,
     loading: false,
     error: null,
   };
 
   const [state, dispatch] = useReducer(listReducer, initialState);
-
-  // get list from server
-  const getList = async () => {
-    try {
-      setLoading();
-
-      const res = await fetch('/list');
-      const data = await res.json();
-
-      dispatch({
-        type: GET_LIST,
-        payload: data,
-      });
-    } catch (err) {
-      dispatch({
-        type: LIST_ERROR,
-        payload: err.response.msg,
-      });
-    }
-  };
 
   //add list item
   const addListItem = async (listItem) => {
@@ -60,6 +37,26 @@ const ListState = (props) => {
 
       dispatch({
         type: ADD_LISTITEM,
+        payload: data,
+      });
+    } catch (err) {
+      dispatch({
+        type: LIST_ERROR,
+        payload: err.response.msg,
+      });
+    }
+  };
+
+  // get list from server
+  const getList = async () => {
+    try {
+      setLoading();
+
+      const res = await fetch('/list');
+      const data = await res.json();
+
+      dispatch({
+        type: GET_LIST,
         payload: data,
       });
     } catch (err) {
