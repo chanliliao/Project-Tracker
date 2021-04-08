@@ -1,5 +1,6 @@
 import React from 'react';
 
+// for loading state
 const Preloader = () => {
   return (
     <div className='progress blue lighten-4'>

@@ -1,4 +1,6 @@
 import React, { useReducer } from 'react';
+
+// context
 import ListContext from './listContext';
 import listReducer from './listReducer';
 
@@ -26,6 +28,7 @@ const ListState = (props) => {
     try {
       setLoading();
 
+      //grab data
       const res = await fetch('/list', {
         method: 'POST',
         body: JSON.stringify(listItem),
@@ -33,13 +36,17 @@ const ListState = (props) => {
           'Content-Type': 'application/json',
         },
       });
+
+      //set data
       const data = await res.json();
 
+      //send data
       dispatch({
         type: ADD_LISTITEM,
         payload: data,
       });
     } catch (err) {
+      // catch errors
       dispatch({
         type: LIST_ERROR,
         payload: err.response.msg,

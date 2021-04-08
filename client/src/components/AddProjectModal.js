@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 
+// context
 import ListContext from '../context/list/listContext';
 
 // import for materialize css
@@ -7,17 +8,22 @@ import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 
 const AddProjectModal = () => {
+  // initialized context
   const listContext = useContext(ListContext);
   const { addListItem } = listContext;
 
+  // difference states on the page
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [message, setMessage] = useState('');
 
+  // onSubmit function for the form
   const onSubmit = () => {
     if (message === '' || title === '') {
+      // set pop up message
       M.toast({ html: 'Please enter a title and message' });
     } else {
+      // creates the form
       const newListItem = {
         title,
         category,
@@ -25,8 +31,10 @@ const AddProjectModal = () => {
         date: new Date(),
       };
 
+      // submits the form with function from context
       addListItem(newListItem);
 
+      // reset all state
       setMessage('');
       setTitle('');
       setCategory('');
@@ -94,6 +102,7 @@ const AddProjectModal = () => {
   );
 };
 
+// custom style for the modal
 const modalStyle = {
   width: '75%',
   height: '75%',

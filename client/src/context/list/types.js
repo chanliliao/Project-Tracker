@@ -1,3 +1,4 @@
+// all the types for the reducer/actioin
 export const GET_LIST = 'GET_LIST';
 export const ADD_LISTITEM = 'ADD_LISTITEM';
 export const DELETE_LISTITEM = 'DELETE_LISTITEM';

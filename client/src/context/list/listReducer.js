@@ -9,6 +9,7 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
+    // add item using es6 spread operator
     case ADD_LISTITEM:
       return {
         ...state,
@@ -21,6 +22,7 @@ export default (state, action) => {
         list: action.payload,
         loading: false,
       };
+    // delete by using filter to search
     case DELETE_LISTITEM:
       return {
         ...state,

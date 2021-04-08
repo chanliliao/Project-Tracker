@@ -1,12 +1,16 @@
 import React, { useRef, useContext } from 'react';
 
+// context
 import ListContext from '../context/list/listContext';
 
 const SearchBar = () => {
   const text = useRef('');
+
+  // initialized context
   const listContext = useContext(ListContext);
   const { searchList } = listContext;
 
+  // onchange function for search
   const onChange = () => {
     searchList(text.current.value);
   };

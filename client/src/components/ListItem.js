@@ -6,13 +6,16 @@ import ListContext from '../context/list/listContext';
 
 // import materialize css
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css';
 
 const ListItem = ({ listItem }) => {
+  // initialized context
   const listContext = useContext(ListContext);
   const { deleteListItem } = listContext;
+
+  // destructure from iist item
   const { id, title, category, date, message } = listItem;
 
+  // ondelete function when delete button is click
   const onDelete = () => {
     deleteListItem(id);
   };
