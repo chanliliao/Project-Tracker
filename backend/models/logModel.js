@@ -6,7 +6,7 @@ const logSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    category: {
+    type: {
       type: String,
       required: true,
     },
