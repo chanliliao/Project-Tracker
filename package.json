@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Tracks projects",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
     "client": "npm start --prefix client",
-    "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Henry Liao",
