@@ -13,7 +13,7 @@ const ListItem = ({ listItem }) => {
   const { deleteListItem } = listContext;
 
   // destructure from iist item
-  const { _id, project, type, date, message } = listItem;
+  const { _id, project, type, createdOn, message } = listItem;
 
   // ondelete function when delete button is click
   const onDelete = () => {
@@ -31,9 +31,9 @@ const ListItem = ({ listItem }) => {
         <br />
         <span className='green-text'>Message:</span> {message}
         <br />
-        last updated:
+        Date Created:
         <Moment className='gray-text' format=' MMMM Do YYYY, h:mm:ss a'>
-          {date}
+          {createdOn}
         </Moment>
         <a
           href='#!'

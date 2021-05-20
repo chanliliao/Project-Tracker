@@ -13,13 +13,28 @@ const List = ({ match }) => {
 
   // initialized context
   const listContext = useContext(ListContext);
-  const { _id, list, loading, getList } = listContext;
+  const {
+    _id,
+    list,
+    loading,
+    getList,
+    // listItemDeleted, deleteRest
+  } = listContext;
 
   // first time when page starts
   useEffect(() => {
     getList(keyword);
+    // if (listItemDeleted) {
+    //   deleteRest();
+    // }
     // eslint-disable-next-line
-  }, [keyword]);
+  }, [
+    keyword,
+    loading,
+    // listItemDeleted
+  ]);
+
+  console.log(loading);
 
   if (loading || list === null) {
     return <Preloader />;

@@ -5,6 +5,7 @@ import {
   SEARCH_LIST,
   SET_LOADING,
   LIST_ERROR,
+  DELETE_REST,
 } from './types';
 
 export default (state, action) => {
@@ -27,8 +28,14 @@ export default (state, action) => {
       return {
         ...state,
         list: state.list.filter((listItem) => listItem.id !== action.payload),
+        listItemDeleted: true,
         loading: false,
       };
+    // case DELETE_REST:
+    //   return {
+    //     ...state,
+    //     listItemDeleted: false,
+    //   };
     // case SEARCH_LIST:
     //   return {
     //     ...state,

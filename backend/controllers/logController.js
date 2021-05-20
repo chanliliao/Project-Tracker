@@ -7,12 +7,13 @@ import asyncHandler from 'express-async-handler';
 const createLog = asyncHandler(async (req, res) => {
   // create boiler plate for new product
 
-  const { project, type, message } = req.body;
+  const { project, type, message, createdOn } = req.body;
 
   const log = new Log({
     project,
     type,
     message,
+    createdOn,
   });
 
   // create the product and send it

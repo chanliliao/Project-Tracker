@@ -28,9 +28,9 @@ const AddProjectModal = () => {
         project,
         type,
         message,
-        date: new Date(),
+        createdOn: new Date(),
       };
-      console.log(newListItem);
+
       // submits the form with function from context
       addListItem(newListItem);
 

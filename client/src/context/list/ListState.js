@@ -12,12 +12,13 @@ import {
   SEARCH_LIST,
   SET_LOADING,
   LIST_ERROR,
+  DELETE_REST,
 } from './types';
 
 const ListState = (props) => {
   const initialState = {
     list: [],
-    current: null,
+    // listItemDeleted: false,
     loading: true,
     error: null,
   };
@@ -112,10 +113,12 @@ const ListState = (props) => {
 
   //set loading
   const setLoading = () => {
-    return {
-      type: SET_LOADING,
-    };
+    dispatch({ type: SET_LOADING });
   };
+
+  // const deleteRest = () => {
+  //   dispatch({ type: DELETE_REST });
+  // };
 
   return (
     <ListContext.Provider
@@ -124,9 +127,11 @@ const ListState = (props) => {
         current: state.current,
         loading: state.loading,
         error: state.error,
+        // listItemDeleted: state.listItemDeleted,
         getList,
         addListItem,
         deleteListItem,
+        // cdeleteRest,
         // searchList,
       }}
     >
