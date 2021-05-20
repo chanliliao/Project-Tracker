@@ -13,31 +13,31 @@ const AddProjectModal = () => {
   const { addListItem } = listContext;
 
   // difference states on the page
-  const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('');
+  const [project, setProject] = useState('');
+  const [type, setType] = useState('');
   const [message, setMessage] = useState('');
 
   // onSubmit function for the form
   const onSubmit = () => {
-    if (message === '' || title === '') {
+    if (message === '' || project === '') {
       // set pop up message
       M.toast({ html: 'Please enter a title and message' });
     } else {
       // creates the form
       const newListItem = {
-        title,
-        category,
+        project,
+        type,
         message,
         date: new Date(),
       };
-
+      console.log(newListItem);
       // submits the form with function from context
       addListItem(newListItem);
 
       // reset all state
       setMessage('');
-      setTitle('');
-      setCategory('');
+      setProject('');
+      setType('');
     }
   };
 
@@ -49,11 +49,11 @@ const AddProjectModal = () => {
           <div className='input-field'>
             <input
               type='text'
-              name='title'
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              name='project'
+              value={project}
+              onChange={(e) => setProject(e.target.value)}
             />
-            <label htmlFor='title' className='active'>
+            <label htmlFor='project' className='active'>
               Project Title
             </label>
           </div>
@@ -63,9 +63,9 @@ const AddProjectModal = () => {
           <div className='input-field'>
             <select
               name='options'
-              value={category}
+              value={type}
               className='browser-default'
-              onChange={(e) => setCategory(e.target.value)}
+              onChange={(e) => setType(e.target.value)}
             >
               <option value='' disable>
                 Choose your option

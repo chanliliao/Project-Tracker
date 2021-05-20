@@ -7,18 +7,21 @@ import ListContext from '../context/list/listContext';
 import ListItem from './ListItem';
 import Preloader from '../layout/Preloader';
 
-const List = () => {
+const List = ({ match }) => {
+  // grab data
+  const keyword = match.params.keyword;
+
   // initialized context
   const listContext = useContext(ListContext);
-  const { id, list, loading, getList } = listContext;
+  const { _id, list, loading, getList } = listContext;
 
   // first time when page starts
   useEffect(() => {
-    getList();
+    console.log(1);
+    getList(keyword);
     // eslint-disable-next-line
-  }, []);
+  }, [keyword]);
 
-  // if there is a delay on getting the data
   if (loading || list === null) {
     return <Preloader />;
   }
@@ -31,7 +34,7 @@ const List = () => {
       {!loading && list.length === 0 ? (
         <p className='center'>No list to show...</p>
       ) : (
-        list.map((listItem) => <ListItem listItem={listItem} key={id} />)
+        list.map((listItem) => <ListItem listItem={listItem} key={_id} />)
       )}
     </ul>
   );

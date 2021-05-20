@@ -24,26 +24,19 @@ const createLog = asyncHandler(async (req, res) => {
 //@route  GET /api/logs
 //@access Public
 const getLogs = asyncHandler(async (req, res) => {
-  // control how many items per page
-  const pageSize = 8;
-  const page = Number(req.query.pageNumber) || 1;
-
   // this is how to get the question mark
   const keyword = req.query.keyword
     ? {
-        name: {
+        project: {
           $regex: req.query.keyword,
           $options: 'i',
         },
       }
     : {};
 
-  const count = await Log.countDocuments({ ...keyword });
-  const logs = await Log.find({ ...keyword })
-    .limit(pageSize)
-    .skip(pageSize * (page - 1));
+  const logs = await Log.find({ ...keyword });
 
-  res.json({ logs, page, pages: Math.ceil(count / pageSize) });
+  res.json({ logs });
 });
 
 //@desc   delete a log

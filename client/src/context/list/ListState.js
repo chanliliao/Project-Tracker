@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import axios from 'axios';
 
 // context
 import ListContext from './listContext';
@@ -15,9 +16,9 @@ import {
 
 const ListState = (props) => {
   const initialState = {
-    list: null,
+    list: [],
     current: null,
-    loading: false,
+    loading: true,
     error: null,
   };
 
@@ -25,23 +26,15 @@ const ListState = (props) => {
 
   //add list item
   const addListItem = async (listItem) => {
+    const config = {
+      header: { 'Content-Type': 'application/json' },
+    };
+
     try {
       setLoading();
 
       //grab data
-      const res = await fetch(
-        'https://personal-project-tracker1.herokuapp.com/list',
-        {
-          method: 'POST',
-          body: JSON.stringify(listItem),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
-      //set data
-      const data = await res.json();
+      const { data } = await axios.post('/api/logs', listItem, config);
 
       //send data
       dispatch({
@@ -58,14 +51,11 @@ const ListState = (props) => {
   };
 
   // get list from server
-  const getList = async () => {
+  const getList = async (keyword = '') => {
     try {
       setLoading();
 
-      const res = await fetch(
-        'https://personal-project-tracker1.herokuapp.com/list'
-      );
-      const data = await res.json();
+      const { data } = await axios.get(`/api/logs?keyword=${keyword}`);
 
       dispatch({
         type: GET_LIST,
@@ -84,12 +74,7 @@ const ListState = (props) => {
     try {
       setLoading();
 
-      await fetch(
-        `https://personal-project-tracker1.herokuapp.com/list/${id}`,
-        {
-          method: 'DELETE',
-        }
-      );
+      await axios.delete(`/api/logs/${id}`);
 
       dispatch({
         type: DELETE_LISTITEM,
@@ -103,27 +88,27 @@ const ListState = (props) => {
     }
   };
 
-  //search list
-  const searchList = async (text) => {
-    try {
-      setLoading();
+  // //search list
+  // const searchList = async (text) => {
+  //   try {
+  //     setLoading();
 
-      const res = await fetch(
-        `https://personal-project-tracker1.herokuapp.com/list/?q=${text}`
-      );
-      const data = await res.json();
+  //     const res = await fetch(
+  //       `https://personal-project-tracker1.herokuapp.com/list/?q=${text}`
+  //     );
+  //     const data = await res.json();
 
-      dispatch({
-        type: SEARCH_LIST,
-        payload: data,
-      });
-    } catch (err) {
-      dispatch({
-        type: LIST_ERROR,
-        payload: err.response.msg,
-      });
-    }
-  };
+  //     dispatch({
+  //       type: SEARCH_LIST,
+  //       payload: data,
+  //     });
+  //   } catch (err) {
+  //     dispatch({
+  //       type: LIST_ERROR,
+  //       payload: err.response.msg,
+  //     });
+  //   }
+  // };
 
   //set loading
   const setLoading = () => {
@@ -142,7 +127,7 @@ const ListState = (props) => {
         getList,
         addListItem,
         deleteListItem,
-        searchList,
+        // searchList,
       }}
     >
       {props.children}

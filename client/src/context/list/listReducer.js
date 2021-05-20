@@ -19,7 +19,7 @@ export default (state, action) => {
     case GET_LIST:
       return {
         ...state,
-        list: action.payload,
+        list: action.payload.logs,
         loading: false,
       };
     // delete by using filter to search
@@ -29,11 +29,11 @@ export default (state, action) => {
         list: state.list.filter((listItem) => listItem.id !== action.payload),
         loading: false,
       };
-    case SEARCH_LIST:
-      return {
-        ...state,
-        list: action.payload,
-      };
+    // case SEARCH_LIST:
+    //   return {
+    //     ...state,
+    //     list: action.payload,
+    //   };
     case SET_LOADING:
       return {
         ...state,

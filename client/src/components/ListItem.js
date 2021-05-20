@@ -13,21 +13,21 @@ const ListItem = ({ listItem }) => {
   const { deleteListItem } = listContext;
 
   // destructure from iist item
-  const { id, title, category, date, message } = listItem;
+  const { _id, project, type, date, message } = listItem;
 
   // ondelete function when delete button is click
   const onDelete = () => {
-    deleteListItem(id);
+    deleteListItem(_id);
   };
 
   return (
     <li className='collection-item'>
       <div>
         <a href='' className='blue-text'>
-          {title}
+          {project}
         </a>
         <br />
-        <span className='red-text'>Category:</span> {category}
+        <span className='red-text'>Type:</span> {type}
         <br />
         <span className='green-text'>Message:</span> {message}
         <br />
