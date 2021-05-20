@@ -17,7 +17,6 @@ const List = ({ match }) => {
 
   // first time when page starts
   useEffect(() => {
-    console.log(1);
     getList(keyword);
     // eslint-disable-next-line
   }, [keyword]);
