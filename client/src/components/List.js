@@ -22,8 +22,12 @@ const List = ({ match }) => {
     if (listItemDeleted) {
       deleteRest();
     }
-    eslint - disable - next - line;
-  }, [keyword, loading, listItemDeleted]);
+    // eslint - disable - next - line;
+  }, [
+    keyword,
+    // loading,
+    listItemDeleted,
+  ]);
 
   console.log(loading);
 

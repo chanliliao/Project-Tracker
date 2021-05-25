@@ -116,9 +116,9 @@ const ListState = (props) => {
     dispatch({ type: SET_LOADING });
   };
 
-  // const deleteRest = () => {
-  //   dispatch({ type: DELETE_REST });
-  // };
+  const deleteRest = () => {
+    dispatch({ type: DELETE_REST });
+  };
 
   return (
     <ListContext.Provider
@@ -127,11 +127,11 @@ const ListState = (props) => {
         current: state.current,
         loading: state.loading,
         error: state.error,
-        // listItemDeleted: state.listItemDeleted,
+        listItemDeleted: state.listItemDeleted,
         getList,
         addListItem,
         deleteListItem,
-        // cdeleteRest,
+        deleteRest,
         // searchList,
       }}
     >

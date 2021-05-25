@@ -31,16 +31,16 @@ export default (state, action) => {
         listItemDeleted: true,
         loading: false,
       };
-    // case DELETE_REST:
-    //   return {
-    //     ...state,
-    //     listItemDeleted: false,
-    //   };
-    // case SEARCH_LIST:
-    //   return {
-    //     ...state,
-    //     list: action.payload,
-    //   };
+    case DELETE_REST:
+      return {
+        ...state,
+        listItemDeleted: false,
+      };
+    case SEARCH_LIST:
+      return {
+        ...state,
+        list: action.payload,
+      };
     case SET_LOADING:
       return {
         ...state,
