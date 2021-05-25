@@ -13,26 +13,17 @@ const List = ({ match }) => {
 
   // initialized context
   const listContext = useContext(ListContext);
-  const {
-    _id,
-    list,
-    loading,
-    getList,
-    // listItemDeleted, deleteRest
-  } = listContext;
+  const { _id, list, loading, getList, listItemDeleted, deleteRest } =
+    listContext;
 
   // first time when page starts
   useEffect(() => {
     getList(keyword);
-    // if (listItemDeleted) {
-    //   deleteRest();
-    // }
-    // eslint-disable-next-line
-  }, [
-    keyword,
-    loading,
-    // listItemDeleted
-  ]);
+    if (listItemDeleted) {
+      deleteRest();
+    }
+    eslint - disable - next - line;
+  }, [keyword, loading, listItemDeleted]);
 
   console.log(loading);
 
