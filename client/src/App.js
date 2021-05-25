@@ -2,12 +2,12 @@ import React, { useEffect, Fragment } from 'react';
 
 //component
 import SearchBar from './layout/SearchBar';
-import List from './components/List';
+import Logs from './components/Logs';
 import Addbtn from './layout/AddBtn';
 import AddProjectModal from './components/AddProjectModal';
 
 //context
-import ListState from './context/list/ListState';
+import LogsState from './context/logs/LogsState';
 
 //import for materialize css
 import 'materialize-css/dist/css/materialize.min.css';
@@ -21,14 +21,14 @@ function App() {
 
   return (
     <Fragment>
-      <ListState>
+      <LogsState>
         <SearchBar />
         <div className='container'>
           <Addbtn />
           <AddProjectModal />
-          <List />
+          <Logs />
         </div>
-      </ListState>
+      </LogsState>
     </Fragment>
   );
 }

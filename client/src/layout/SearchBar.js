@@ -1,47 +1,36 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useRef, useContext } from 'react';
 
 // context
-import ListContext from '../context/list/listContext';
+import LogsContext from '../context/logs/logsContext';
 
 const SearchBar = ({ history }) => {
-  // const text = useRef('');
+  const text = useRef('');
 
-  // // initialized context
-  // const listContext = useContext(ListContext);
-  // const { searchList } = listContext;
+  // initialized context
+  const logsContext = useContext(LogsContext);
+  const { searchLogs } = logsContext;
 
-  // // onchange function for search
-  // const onChange = () => {
-  //   searchList(text.current.value);
-  // };
-  const [keyword, setKeyword] = useState('');
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (keyword.trim()) {
-      history.push(`/search/${keyword}`);
-    } else {
-      history.push('/');
-    }
+  // onchange function for search
+  const onChange = (e) => {
+    searchLogs(e.target.value);
   };
 
   return (
-    <nav style={{ marginBottom: '50px' }} className='blue darken-4'>
+    <nav style={{ marginBottom: '30px' }} className='blue'>
       <div className='nav-wrapper'>
-        <form onSubmit={submitHandler}>
+        <form>
           <div className='input-field'>
             <input
-              type='search'
               id='search'
-              placeholder='Search Projects...'
-              onChange={(e) => setKeyword(e.target.value)}
+              type='search'
+              placeholder='Search Logs...'
+              ref={text}
+              onChange={onChange}
             />
-            <button type='submit'>
-              <label htmlFor='search' className='label-icon'>
-                <i className='material-icons'>search</i>
-              </label>
-            </button>
-            {/* <i className='material-icons'>close</i> */}
+            <label className='label-icon' htmlFor='search'>
+              <i className='material-icons'>search</i>
+            </label>
+            <i className='material-icons'>close</i>
           </div>
         </form>
       </div>

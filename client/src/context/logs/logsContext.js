@@ -1,6 +1,6 @@
 // inintialized Context
 import { createContext } from 'react';
 
-const listContext = createContext();
+const logsContext = createContext();
 
-export default listContext;
+export default logsContext;

@@ -2,22 +2,24 @@ import React, { useContext } from 'react';
 import Moment from 'react-moment';
 
 // context
-import ListContext from '../context/list/listContext';
+import LogsContext from '../context/logs/logsContext';
 
 // import materialize css
 import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css';
 
-const ListItem = ({ listItem }) => {
+const Log = ({ log }) => {
   // initialized context
-  const listContext = useContext(ListContext);
-  const { deleteListItem } = listContext;
+  const logsContext = useContext(LogsContext);
+  const { deleteLog } = logsContext;
 
-  // destructure from iist item
-  const { _id, project, type, createdOn, message } = listItem;
+  // destructure from logs
+  const { _id, project, type, createdOn, message } = log;
 
   // ondelete function when delete button is click
   const onDelete = () => {
-    deleteListItem(_id);
+    deleteLog(_id);
+    M.toast({ html: 'Log deleted' });
   };
 
   return (
@@ -48,4 +50,4 @@ const ListItem = ({ listItem }) => {
   );
 };
 
-export default ListItem;
+export default Log;

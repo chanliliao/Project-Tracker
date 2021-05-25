@@ -25,6 +25,9 @@ const createLog = asyncHandler(async (req, res) => {
 //@route  GET /api/logs
 //@access Public
 const getLogs = asyncHandler(async (req, res) => {
+  // get all logs
+  const logs = await Log.find();
+  // res the logs
   res.json({ logs });
 });
 

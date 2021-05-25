@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 
 // context
-import ListContext from '../context/list/listContext';
+import LogsContext from '../context/logs/logsContext';
 
 // import for materialize css
 import 'materialize-css/dist/css/materialize.min.css';
@@ -9,8 +9,8 @@ import M from 'materialize-css';
 
 const AddProjectModal = () => {
   // initialized context
-  const listContext = useContext(ListContext);
-  const { addListItem } = listContext;
+  const logsContext = useContext(LogsContext);
+  const { addLog } = logsContext;
 
   // difference states on the page
   const [project, setProject] = useState('');
@@ -19,12 +19,12 @@ const AddProjectModal = () => {
 
   // onSubmit function for the form
   const onSubmit = () => {
-    if (message === '' || project === '') {
+    if (message === '' || project === '' || type === '') {
       // set pop up message
-      M.toast({ html: 'Please enter a title and message' });
+      M.toast({ html: 'Please enter project, type,  and message' });
     } else {
       // creates the form
-      const newListItem = {
+      const newLog = {
         project,
         type,
         message,
@@ -32,7 +32,9 @@ const AddProjectModal = () => {
       };
 
       // submits the form with function from context
-      addListItem(newListItem);
+      addLog(newLog);
+
+      M.toast({ html: `Log added` });
 
       // reset all state
       setMessage('');
