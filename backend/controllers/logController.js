@@ -25,18 +25,6 @@ const createLog = asyncHandler(async (req, res) => {
 //@route  GET /api/logs
 //@access Public
 const getLogs = asyncHandler(async (req, res) => {
-  // this is how to get the question mark
-  const keyword = req.query.keyword
-    ? {
-        project: {
-          $regex: req.query.keyword,
-          $options: 'i',
-        },
-      }
-    : {};
-
-  const logs = await Log.find({ ...keyword });
-
   res.json({ logs });
 });
 

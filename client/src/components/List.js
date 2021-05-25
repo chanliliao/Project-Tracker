@@ -7,10 +7,7 @@ import ListContext from '../context/list/listContext';
 import ListItem from './ListItem';
 import Preloader from '../layout/Preloader';
 
-const List = ({ match }) => {
-  // grab data
-  const keyword = match.params.keyword;
-
+const List = () => {
   // initialized context
   const listContext = useContext(ListContext);
   const { _id, list, loading, getList, listItemDeleted, deleteRest } =
@@ -18,16 +15,12 @@ const List = ({ match }) => {
 
   // first time when page starts
   useEffect(() => {
-    getList(keyword);
+    getList();
     if (listItemDeleted) {
       deleteRest();
     }
     // eslint - disable - next - line;
-  }, [
-    keyword,
-    // loading,
-    listItemDeleted,
-  ]);
+  }, [listItemDeleted]);
 
   console.log(loading);
 

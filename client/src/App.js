@@ -1,8 +1,5 @@
 import React, { useEffect, Fragment } from 'react';
 
-// react router
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
 //component
 import SearchBar from './layout/SearchBar';
 import List from './components/List';
@@ -23,20 +20,16 @@ function App() {
   });
 
   return (
-    <Router>
-      <Fragment>
-        <ListState>
-          <SearchBar />
-          <div className='container'>
-            <Addbtn />
-            <AddProjectModal />
-            <Route path='/' component={List} exact />
-            <Route path='/search/:keyword' component={List} exact />
-            {/* <List /> */}
-          </div>
-        </ListState>
-      </Fragment>
-    </Router>
+    <Fragment>
+      <ListState>
+        <SearchBar />
+        <div className='container'>
+          <Addbtn />
+          <AddProjectModal />
+          <List />
+        </div>
+      </ListState>
+    </Fragment>
   );
 }
 
